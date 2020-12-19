@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, memo } from 'react'
 
 import css from './Indicator.sass'
 
@@ -7,7 +7,7 @@ type IIndicator = {
   onClick: () => void
 }
 
-export const Indicator: React.FC<IIndicator> = ({ onClick, hasActive }): ReactElement => {
+export const Indicator: React.FC<IIndicator> = memo(({ onClick, hasActive }): ReactElement => {
   return (
     <button
       type="button"
@@ -15,4 +15,4 @@ export const Indicator: React.FC<IIndicator> = ({ onClick, hasActive }): ReactEl
       className={`${css.Indicator} ${hasActive && css.I__active}`}
     />
   )
-}
+})
