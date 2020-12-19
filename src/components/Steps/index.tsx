@@ -1,5 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 
+import { Indicator } from '../Indicator'
+
 type ISteps = {
   components: ReactElement[]
 }
@@ -13,7 +15,11 @@ export const Steps: React.FC<ISteps> = ({ components }): ReactElement => {
       {components[currentStep]}
       <div>
         {components.map((_, index) => (
-          <button key={index} onClick={() => setCurrentStep(index)}>{index + 1}</button>
+          <Indicator
+            key={index}
+            hasActive={currentStep === index}
+            onClick={() => setCurrentStep(index)}
+          />
         ))}
       </div>
     </div>
